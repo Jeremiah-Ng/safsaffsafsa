@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: gray
+        }
+
+        .overlay {
+            height: 0%;
+            width: 100%;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0);
+            overflow-y: hidden;
+            transition: 0.5s;
+        }
+
+        .overlay-content {
+            position: relative;
+            top: 25%;
+            width: 100%;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .overlay a {
+            padding: 8px;
+            text-decoration: none;
+            font-size: 36px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .overlay a:hover,
+        .overlay a:focus {
+            color: #f1f1f1;
+        }
+
+        .overlay .closebtn {
+            position: absolute;
+            top: 20px;
+            right: 45px;
+            font-size: 60px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .overlay {
+                overflow-y: auto;
+            }
+
+            .overlay a {
+                font-size: 20px
+            }
+
+            .overlay .closebtn {
+                font-size: 40px;
+                top: 15px;
+                right: 35px;
+            }
+        }
+
+        #start {
+            background-color: red;
+            width: 200px;
+            border-radius: 10px;
+            height: 50px;
+            cursor: pointer
+        }
+
+        #waiting {
+            height: 20px;
+        }
+        #extramilelol{
+            display: inline;
+        }
+        .login_div{
+            padding-top: 50px;
+           border-radius: 25px;
+            background-color:aliceblue;
+            width: 500px;
+            padding-bottom: 50px;
+        }
+        .stop{
+            width: 50px;
+        }
+        #name{
+            margin-top: 100px;
+            font-family: 'Open Sans Condensed', sans-serif;
+            background-color: aliceblue;
+            width: 500px;
+            border-radius: 25px;
+        }
+        #lol{
+            display: inline
+        }
+        #lols{
+            margin-top: 250px;
+            display: inline;
+        }
+         #lol1 {
+            margin-top: 250px;
+        }
+    </style>
+</head>
+<title>Login</title>
+<body>
+    <center>
+        <div id="myNav" class="overlay">
+            <br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <h3 style="color:white" id="lols">Checking Account</h3>
+            <h3 id="extramilelol" style="color:white">.</h3>
+            <br>
+            <br><br>
+            <img id="waiting" src="eee.gif">
+        </div>
+                <div id="myNav1" class="overlay">
+            <h3 style="color:white" id="lol1">Redirecting.</h3>
+            <img id="waiting" src="eee.gif">
+        </div>
+
+        
+	<h1 class="header" id="name">	
+		Kwitter	<sup>
+	</sup>
+</h1>
+	<div class="col-lg-4 col-md-6 col-sm-6 col-xs-11 login_div">
+	<img src="m2.png" class="stop">
+		<h3 >See what is happening in the world right now</h3>
+        <h4 id="lol">Dont have an account?   </h4><a id="help" onclick="register()" style="color: dodgerblue; cursor: pointer">Sign Up Today!</a>
+		<div class="form-group">
+            <br>
+		<input type="text" id="user" class="form-control" placeholder="Username">
+		</div>
+        <br>
+		<button id="start" class="btn btn-primary" onclick="wait()">Log in</button>
+    </center>
+    <script>
+        var text = ["..", "...", "."];
+        var counter = 0;
+        var elem = document.getElementById("extramilelol");
+        var inst = setInterval(change, 1000);
+
+        function change() {
+            elem.innerHTML = text[counter];
+            counter++;
+            if (counter >= text.length) {
+                counter = 0;
+            }
+        }
+ var text1 = ["Checking Account","Synchronizing Data", "Accessing Rooms", "Signing In"];
+        var counter1 = 0;
+        var elem1 = document.getElementById("lols");
+        var inst1 = setInterval(change1, 3000);
+
+        function change1() {
+            elem1.innerHTML = text1[counter1];
+            counter1++;
+            if (counter1 >= text1.length) {
+                counter1 = 0;
+            }
+        }
+        var text2 = ["Redirecting..", "Redirecting...", "Redirecting."];
+        var counter2 = 0;
+        var elem2 = document.getElementById("lol1");
+        var inst2 = setInterval(change2, 1000);
+
+        function change2() {
+            elem2.innerHTML = text2[counter2];
+            counter2++;
+            if (counter2 >= text2.length) {
+                counter2 = 0;
+            }
+        }
+
+        function wait() {
+            var username=document.getElementById("user").value;
+            if(username.length!=0){
+            document.getElementById("myNav").style.height = "100%";
+            setTimeout(openNav, 12000);
+                localStorage.setItem("username", username);
+            }
+            else{
+                document.getElementById("user").placeholder="Type Name to Continue"
+            }
+        }
+ function register() {
+            document.getElementById("myNav1").style.height = "100%";
+            setTimeout(openNav1, 5000);
+        }
+        function openNav1(){
+            location.replace("index3.html")
+        }
+        function openNav() {
+
+            location.replace("index4.html")
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").style.height = "0%";
+        }
+
+    </script>
+
+</body>
+
+</html>
